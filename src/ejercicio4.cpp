@@ -10,6 +10,15 @@
 
 using namespace std;
 
+void mergeSort(vector<int>& A, int izq, int der) {
+    if (izq < der) {
+        int medio = izq + (der - izq) / 2;
+        mergeSort(A, izq, medio);
+        mergeSort(A, medio + 1, der);
+        merge(A, izq, medio, der); 
+    }
+}
+
 // Funciones de ordenación con conteo de operaciones
 void merge(vector<int>& A, int izq, int medio, int der, long long& operaciones) {
     operaciones += 5; 
